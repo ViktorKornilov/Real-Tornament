@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1756712981494206130}
   - component: {fileID: 2769915744413221486}
   m_Layer: 0
-  m_Name: Snow particles Viktoras
+  m_Name: SnowParticlesViktoras
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
