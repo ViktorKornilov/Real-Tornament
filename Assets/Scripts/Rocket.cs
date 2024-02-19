@@ -1,8 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
-	public float speed = 10;
+	public float speed = 20;
 
 	void Start()
 	{
@@ -17,10 +19,9 @@ public class Rocket : MonoBehaviour
 	void OnCollisionEnter(Collision other)
 	{
 		Destroy(gameObject);
-		print("boom!");
 
 		var health = other.gameObject.GetComponent<Health>();
-		if (health != null)
+		if( health != null)
 		{
 			health.Damage(10);
 		}
