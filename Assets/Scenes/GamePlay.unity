@@ -442,6 +442,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthText: {fileID: 1399242187}
   health: {fileID: 1328022903}
+  ammoText: {fileID: 1542765911}
+  weapon: {fileID: 1272265561}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,6 +627,7 @@ GameObject:
   - component: {fileID: 1272265560}
   - component: {fileID: 1272265559}
   - component: {fileID: 1272265561}
+  - component: {fileID: 1272265562}
   m_Layer: 3
   m_Name: Bazooka
   m_TagString: Untagged
@@ -710,6 +713,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b82e67bdefb74908b25aef41ee0f0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1272265562}
+        m_TargetAssemblyTypeName: ShotgunMode, Assembly-CSharp
+        m_MethodName: Burst
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   bulletPrefab: {fileID: 3732050572547027184, guid: df62d9183aeff46ae883a674699ee7f0,
     type: 3}
   ammo: 30
@@ -720,7 +738,20 @@ MonoBehaviour:
   fireCooldown: 0
   recoilAngle: 7
   bulletsPerShot: 1
-  ammoText: {fileID: 1542765911}
+--- !u!114 &1272265562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272265556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00fe74cbc9604559b0441d10c64b185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1272265561}
+  activated: 0
 --- !u!1 &1302210008
 GameObject:
   m_ObjectHideFlags: 0

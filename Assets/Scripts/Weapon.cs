@@ -1,8 +1,11 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Weapon : MonoBehaviour
 {
+	public UnityEvent onRightClick;
+
 	public GameObject bulletPrefab;
 	public int ammo;
 	public int maxAmmo = 10;
@@ -20,6 +23,11 @@ public class Weapon : MonoBehaviour
 			Shoot();
 		}
 
+		if (Input.GetKeyDown(KeyCode.Mouse1))
+		{
+			onRightClick.Invoke();
+		}
+
 		// auto mode
 		if(isAutoFire && Input.GetKey(KeyCode.Mouse0))
 		{
@@ -34,7 +42,7 @@ public class Weapon : MonoBehaviour
 		fireCooldown -= Time.deltaTime;
 	}
 
-	void Shoot()
+	public void Shoot()
 	{
 		if(isReloading) return;
 		if (ammo <= 0)
