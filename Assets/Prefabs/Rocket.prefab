@@ -47,6 +47,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
+  explosionPrefab: {fileID: 3995940964130297852, guid: 8dd1cdf931288394ab85b0512657d919,
+    type: 3}
+  hitPrefab: {fileID: 845984442713060037, guid: c5522f4228f0544a7ab8491c310a0aa7,
+    type: 3}
+  bounces: 2
 --- !u!54 &-6001557739738012188
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -72,8 +77,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!1 &8793585981709359773
 GameObject:
   m_ObjectHideFlags: 0
