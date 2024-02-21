@@ -1,10 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Rocket : MonoBehaviour
 {
+	public GameObject explosionPrefab;
+	public GameObject hitPrefab;
+
 	public float speed = 20;
+	public float bounces = 0;
 
 	void Start()
 	{
@@ -18,7 +20,20 @@ public class Rocket : MonoBehaviour
 
 	void OnCollisionEnter(Collision other)
 	{
-		Destroy(gameObject);
+		if (bounces == 0)
+		{
+			Destroy(gameObject);
+			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+		}
+		else
+		{
+			transform.forward = other.contacts[0].normal;
+		}
+		bounces--;
+
+		var obj = Instantiate(hitPrefab, transform.position, Quaternion.identity);
+		obj.transform.forward = other.contacts[0].normal;
+		obj.transform.position += obj.transform.forward * 0.15f;
 
 		var health = other.gameObject.GetComponent<Health>();
 		if( health != null)
