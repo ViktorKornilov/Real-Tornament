@@ -51,7 +51,7 @@ MonoBehaviour:
     type: 3}
   hitPrefab: {fileID: 845984442713060037, guid: c5522f4228f0544a7ab8491c310a0aa7,
     type: 3}
-  bounces: 2
+  bounces: 0
 --- !u!54 &-6001557739738012188
 Rigidbody:
   m_ObjectHideFlags: 0

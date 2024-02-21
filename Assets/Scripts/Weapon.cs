@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class Weapon : MonoBehaviour
@@ -9,7 +10,8 @@ public class Weapon : MonoBehaviour
 	public bool isAutoFire;
 	public float fireInterval = 0.5f;
 	public float fireCooldown;
-
+	public float recoilAngle;
+	public int bulletsPerShot = 1;
 	void Update()
 	{
 		// manual mode
@@ -45,7 +47,14 @@ public class Weapon : MonoBehaviour
 
 		ammo--;
 		fireCooldown = fireInterval;
-		Instantiate(bulletPrefab,transform.position,transform.rotation);
+
+		for (int i = 0; i < bulletsPerShot; i++)
+		{
+			var bullet = Instantiate(bulletPrefab,transform.position,transform.rotation);
+			var offsetX = Random.Range(-recoilAngle,recoilAngle);
+			var offsetY = Random.Range(-recoilAngle,recoilAngle);
+			bullet.transform.eulerAngles += new Vector3(offsetX, offsetY, 0);
+		}
 	}
 
 
