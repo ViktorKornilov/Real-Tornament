@@ -9,6 +9,8 @@ public class Weapon : MonoBehaviour
 	public bool isAutoFire;
 	public float fireInterval = 0.5f;
 	public float fireCooldown;
+	public float recoilAngle = 5f;
+	public float pelletsCount = 1;
 
 	void Update()
 	{
@@ -45,7 +47,14 @@ public class Weapon : MonoBehaviour
 
 		ammo--;
 		fireCooldown = fireInterval;
-		Instantiate(bulletPrefab,transform.position,transform.rotation);
+
+		for(int i = 0;i < pelletsCount; i++)
+		{
+			var bullet = Instantiate(bulletPrefab,transform.position,transform.rotation);
+			var xOffset = Random.Range(-recoilAngle, recoilAngle);
+			var yOffset = Random.Range(-recoilAngle, recoilAngle);
+			bullet.transform.eulerAngles += new Vector3(xOffset,yOffset,0);
+		}
 	}
 
 
