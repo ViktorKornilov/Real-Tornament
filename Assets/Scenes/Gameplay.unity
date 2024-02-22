@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b9cddba77db64f8f80de6b7e7ec70a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 50
+  hp: 0
   maxHp: 100
 --- !u!1 &832575517
 GameObject:
@@ -939,6 +939,7 @@ GameObject:
   - component: {fileID: 1686232864}
   - component: {fileID: 1686232863}
   - component: {fileID: 1686232865}
+  - component: {fileID: 1686232866}
   m_Layer: 3
   m_Name: Bazooka
   m_TagString: Untagged
@@ -1028,10 +1029,43 @@ MonoBehaviour:
     type: 3}
   ammo: 1000
   maxAmmo: 1000
+  clipAmmo: 100
+  clipSize: 100
   isReloading: 0
   isAutomatic: 1
-  fireInterval: 0.5
+  fireInterval: 0.1
   reloadTime: 2
+  bulletsPerShot: 1
+  spreadAngle: 0
+  onRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1686232866}
+        m_TargetAssemblyTypeName: BurstMod, Assembly-CSharp
+        m_MethodName: Burst
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1686232866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686232860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2c3959492c544ec8812ee5d02592db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1686232865}
+  isBursting: 0
 --- !u!1 &1813641388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213,
