@@ -369,6 +369,7 @@ GameObject:
   - component: {fileID: 481878554}
   - component: {fileID: 481878553}
   - component: {fileID: 481878552}
+  - component: {fileID: 481878556}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -464,6 +465,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &481878556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481878551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8644ad5f2c78844f0a0523ef75abe8e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+  maxHealth: 100
+  onDamage:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -819,6 +840,8 @@ GameObject:
   - component: {fileID: 1686232864}
   - component: {fileID: 1686232863}
   - component: {fileID: 1686232865}
+  - component: {fileID: 1686232866}
+  - component: {fileID: 1686232867}
   m_Layer: 3
   m_Name: Bazooka
   m_TagString: Untagged
@@ -901,16 +924,70 @@ MonoBehaviour:
   m_GameObject: {fileID: 1686232860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7aae27467b5d641ebb4f9b756500aa61, type: 3}
+  m_Script: {fileID: 11500000, guid: 4b82e67bdefb74908b25aef41ee0f0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8112034479082718710, guid: 883ad39c11297447bb9c7e3eddee323b,
     type: 3}
-  ammo: 50
-  maxAmmo: 50
+  ammo: 25
+  maxAmmo: 25
+  clipAmmo: 10
+  clipSize: 10
   isReloading: 0
   isAutoFire: 1
-  shootInterval: 0.1
+  fireInterval: 0.1
+  fireCooldown: 0
+  spreadAngle: 10
+  bulletsPerShot: 1
+  onRightClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1686232867}
+        m_TargetAssemblyTypeName: Scope, Assembly-CSharp
+        m_MethodName: Scoping
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onReload:
+    m_PersistentCalls:
+      m_Calls: []
+  onShoot:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1686232866
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686232860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2c3959492c544ec8812ee5d02592db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1686232865}
+  isBurstFire: 0
+--- !u!114 &1686232867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686232860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 707d679dd371ff143a9d81283c595e65, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camera: {fileID: 1813641395}
+  isScoped: 0
 --- !u!1 &1813641388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213,
@@ -967,6 +1044,18 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1813641395 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5273061343101857912, guid: f2e0b7ae4dae8cf44955bccd3512b213,
+    type: 3}
+  m_PrefabInstance: {fileID: 130324616}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813641388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec72980442fddac4d86e75ab24b4d027, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1976767219
 GameObject:
   m_ObjectHideFlags: 0

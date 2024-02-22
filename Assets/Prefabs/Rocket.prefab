@@ -116,8 +116,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5975501999977042987}
-  - component: {fileID: -2811476748491197276}
   - component: {fileID: -2695236301322819235}
+  - component: {fileID: 298921281628089212}
   m_Layer: 6
   m_Name: Rocket
   m_TagString: Untagged
@@ -142,25 +142,6 @@ Transform:
   - {fileID: 5808339803818127955}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-2811476748491197276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8112034479082718710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02548d5621d1b4691b40b63cc29e65d2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
-  damage: 10
-  explosionPrefab: {fileID: 3995940964130297852, guid: 8dd1cdf931288394ab85b0512657d919,
-    type: 3}
-  hitPrefab: {fileID: 4004045094427331524, guid: 1485e9403e8c04042a1814618c0d125c,
-    type: 3}
-  bounceCount: 2
 --- !u!54 &-2695236301322819235
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -188,6 +169,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &298921281628089212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112034479082718710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea4987e2857a644339769e78d719f9e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 20
 --- !u!1001 &4683156000399403929
 PrefabInstance:
   m_ObjectHideFlags: 0
