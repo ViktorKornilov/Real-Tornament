@@ -488,6 +488,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
+  shouldDestroy: 1
+  damageEffect: {fileID: 0}
+  deathEffect: {fileID: 4507870049406180591, guid: 351c26451498d8f4eb5d156fb1035e94,
+    type: 3}
   onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -814,6 +818,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 0
   maxHealth: 100
+  shouldDestroy: 0
+  damageEffect: {fileID: 0}
+  deathEffect: {fileID: 0}
   onDamage:
     m_PersistentCalls:
       m_Calls: []
@@ -1389,15 +1396,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8112034479082718710, guid: 883ad39c11297447bb9c7e3eddee323b,
     type: 3}
-  ammo: 25
-  maxAmmo: 25
-  clipAmmo: 10
-  clipSize: 10
+  ammo: 150
+  maxAmmo: 150
+  clipAmmo: 50
+  clipSize: 50
   isReloading: 0
   isAutoFire: 1
   fireInterval: 0.1
   fireCooldown: 0
-  spreadAngle: 10
+  spreadAngle: 1
   bulletsPerShot: 1
   onRightClick:
     m_PersistentCalls:
