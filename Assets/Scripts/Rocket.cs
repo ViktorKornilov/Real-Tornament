@@ -30,8 +30,13 @@ public class Rocket : MonoBehaviour
 		{
 			transform.forward = other.contacts[0].normal;
 		}
-		var obj = Instantiate(hitPrefab,transform.position,transform.rotation);
-		obj.transform.position = other.contacts[0].point + transform.forward * 0.2f;
+
+		if(!other.gameObject.CompareTag("Enemy"))
+		{
+			var obj = Instantiate(hitPrefab,transform.position,transform.rotation);
+			obj.transform.forward = other.contacts[0].normal;
+			obj.transform.position = other.contacts[0].point + transform.forward * -0.05f;
+		}
 
 		bounces--;
 
