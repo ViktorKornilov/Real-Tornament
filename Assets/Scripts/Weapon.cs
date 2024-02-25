@@ -58,7 +58,6 @@ public class Weapon : MonoBehaviour
 		}
 		if(fireCooldown > 0) return;
 
-		onShoot.Invoke();
 		clipAmmo--;
 		fireCooldown = fireInterval;
 
@@ -69,6 +68,8 @@ public class Weapon : MonoBehaviour
 			var offsetY = Random.Range(-spreadAngle, spreadAngle);
 			bullet.transform.eulerAngles += new Vector3(offsetX, offsetY, 0);
 		}
+
+		onShoot.Invoke();
 	}
 
 
