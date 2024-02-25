@@ -370,6 +370,7 @@ GameObject:
   - component: {fileID: 481878553}
   - component: {fileID: 481878552}
   - component: {fileID: 481878556}
+  - component: {fileID: 481878557}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -481,10 +482,36 @@ MonoBehaviour:
   maxHealth: 100
   onDamage:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 481878557}
+        m_TargetAssemblyTypeName: DarkenOnDamageMod, Assembly-CSharp
+        m_MethodName: Darken
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDie:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &481878557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481878551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207e1247d5ac7ab44b7584bfa78dd273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: {fileID: 481878556}
+  darkenAmount: 0.1
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +869,8 @@ GameObject:
   - component: {fileID: 1686232865}
   - component: {fileID: 1686232866}
   - component: {fileID: 1686232867}
+  - component: {fileID: 1686232868}
+  - component: {fileID: 1686232869}
   m_Layer: 3
   m_Name: Bazooka
   m_TagString: Untagged
@@ -942,9 +971,21 @@ MonoBehaviour:
   onRightClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1686232867}
-        m_TargetAssemblyTypeName: Scope, Assembly-CSharp
-        m_MethodName: Scoping
+      - m_Target: {fileID: 1686232868}
+        m_TargetAssemblyTypeName: Mod, Assembly-CSharp
+        m_MethodName: UnderbarrelGrenadeLauncher
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1686232869}
+        m_TargetAssemblyTypeName: scope, Assembly-CSharp
+        m_MethodName: scoped
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -983,11 +1024,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 1686232860}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 707d679dd371ff143a9d81283c595e65, type: 3}
+  m_Script: {fileID: 11500000, guid: aa2fd16d75fbc424793dbd17a70c450c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 1813641395}
+  weapon: {fileID: 1686232865}
+  cam: {fileID: 1813641398}
   isScoped: 0
+  scopeFOVMultiplier: 1.5
+  sensitivityMultiplier: 0.5
+--- !u!114 &1686232868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686232860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1514ef9bcc33aec4287fd6bc8df3f25e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1686232865}
+  grenade: {fileID: 8112034479082718710, guid: a7a3169bab4d5bb4ba0e3e9f1b2e1821, type: 3}
+  originalBullet: {fileID: 0}
+--- !u!114 &1686232869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1686232860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168cf6ad96bf76b47bc3850c9c0f95e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  view: {fileID: 1813641395}
+  FOV: 5
+  isscoped: 0
 --- !u!1 &1813641388 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5242010300582068122, guid: f2e0b7ae4dae8cf44955bccd3512b213,
@@ -1056,6 +1130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec72980442fddac4d86e75ab24b4d027, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!20 &1813641398 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 5256384803381100468, guid: f2e0b7ae4dae8cf44955bccd3512b213,
+    type: 3}
+  m_PrefabInstance: {fileID: 130324616}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976767219
 GameObject:
   m_ObjectHideFlags: 0
