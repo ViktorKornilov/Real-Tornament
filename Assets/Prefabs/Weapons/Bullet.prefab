@@ -180,8 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea4987e2857a644339769e78d719f9e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 3995940964130297852, guid: 8dd1cdf931288394ab85b0512657d919,
-    type: 3}
+  explosionPrefab: {fileID: 0}
   hitPrefab: {fileID: 1232394970056341306, guid: 8c566592cccd74e64902e0e9c0a6295a,
     type: 3}
   speed: 20

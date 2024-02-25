@@ -610,7 +610,9 @@ MonoBehaviour:
   onDamage:
     m_PersistentCalls:
       m_Calls: []
-  damageEffect: {fileID: 144972412703405366, guid: ea2a816ea2babc44d9f2c14ac84c1776,
+  damageEffect: {fileID: 3207000696509436807, guid: e82a5e9f5cdca4a26bf577b2fa41e7ce,
+    type: 3}
+  deathEffect: {fileID: 8638926568536314069, guid: 972aa010530a243e79e691b34aab6c59,
     type: 3}
 --- !u!1 &832575517
 GameObject:
@@ -1385,6 +1387,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   damageEffect: {fileID: 0}
+  deathEffect: {fileID: 0}
 --- !u!1 &2096758027
 GameObject:
   m_ObjectHideFlags: 0

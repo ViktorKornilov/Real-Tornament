@@ -23,7 +23,7 @@ public class Rocket : MonoBehaviour
 		if (bounces == 0)
 		{
 			Destroy(gameObject);
-			Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+			if(explosionPrefab)Instantiate(explosionPrefab, transform.position, Quaternion.identity);
 		}
 		else
 		{
@@ -31,9 +31,12 @@ public class Rocket : MonoBehaviour
 		}
 		bounces--;
 
-		var obj = Instantiate(hitPrefab, transform.position, Quaternion.identity);
-		obj.transform.forward = other.contacts[0].normal;
-		obj.transform.position += obj.transform.forward * 0.15f;
+		if (!other.gameObject.CompareTag("Enemy"))
+		{
+			var obj = Instantiate(hitPrefab, transform.position, Quaternion.identity);
+			obj.transform.forward = other.contacts[0].normal;
+			obj.transform.position += obj.transform.forward * 0.15f;
+		}
 
 		var health = other.gameObject.GetComponent<Health>();
 		if( health != null)
