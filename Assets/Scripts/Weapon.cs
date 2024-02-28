@@ -21,37 +21,10 @@ public class Weapon : MonoBehaviour
 
 	void Update()
 	{
-		// manual mode
-		if (!isAutoFire && Input.GetKeyDown(KeyCode.Mouse0))
-		{
-			Shoot();
-		}
-
-		// auto mode
-		if(isAutoFire && Input.GetKey(KeyCode.Mouse0))
-		{
-			Shoot();
-		}
-
-		if (Input.GetKeyDown(KeyCode.Mouse1))
-		{
-			onSpecial.Invoke(true);
-		}
-
-		if (Input.GetKeyUp(KeyCode.Mouse1))
-		{
-			onSpecial.Invoke(false);
-		}
-
-		if( Input.GetKeyDown(KeyCode.R) && ammo < maxAmmo)
-		{
-			Reload();
-		}
-
 		fireCooldown -= Time.deltaTime;
 	}
 
-	async void Shoot()
+	public async void Shoot()
 	{
 		if(isReloading) return;
 		if (ammo <= 0)
@@ -67,7 +40,7 @@ public class Weapon : MonoBehaviour
 
 		for(int i = 0;i < pelletsCount; i++)
 		{
-			var bullet = Instantiate(bulletPrefab,transform.position,transform.rotation);
+			var bullet = Instantiate(bulletPrefab,shootEffect.transform.position,transform.rotation);
 			var xOffset = Random.Range(-recoilAngle, recoilAngle);
 			var yOffset = Random.Range(-recoilAngle, recoilAngle);
 			bullet.transform.eulerAngles += new Vector3(xOffset,yOffset,0);
@@ -81,7 +54,7 @@ public class Weapon : MonoBehaviour
 	}
 
 
-	async void Reload()
+	public async void Reload()
 	{
 		if (isReloading) return;
 		isReloading = true;
