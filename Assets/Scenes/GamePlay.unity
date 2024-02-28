@@ -330,6 +330,7 @@ GameObject:
   - component: {fileID: 535049381}
   - component: {fileID: 535049380}
   - component: {fileID: 535049385}
+  - component: {fileID: 535049386}
   m_Layer: 7
   m_Name: Shotgun
   m_TagString: Untagged
@@ -481,6 +482,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.9244967, y: 2.5842335, z: 1.5964346}
   m_Center: {x: 0.009089947, y: -0.005885226, z: 0.13100493}
+--- !u!54 &535049386
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 535049379}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &545260621
 GameObject:
   m_ObjectHideFlags: 0
@@ -1105,6 +1133,7 @@ GameObject:
   - component: {fileID: 1272265561}
   - component: {fileID: 1272265562}
   - component: {fileID: 1272265563}
+  - component: {fileID: 1272265564}
   m_Layer: 7
   m_Name: Bazooka
   m_TagString: Untagged
@@ -1256,6 +1285,33 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.5355282, y: 2.2531326, z: 1.4779068}
   m_Center: {x: 0.09533405, y: -0.036388528, z: 0.005841732}
+--- !u!54 &1272265564
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1272265556}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1302210008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1407,6 +1463,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   equipText: {fileID: 545260621}
+  hand: {fileID: 1662358658}
 --- !u!114 &1328022917
 MonoBehaviour:
   m_ObjectHideFlags: 0

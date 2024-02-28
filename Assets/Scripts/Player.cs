@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
 	public Weapon weapon;
 	public LayerMask weaponLayer;
 	public GameObject equipText;
+	public Transform hand;
 
 	void Start()
 	{
@@ -17,16 +18,19 @@ public class Player : MonoBehaviour
 	{
 		var cam = Camera.main.transform;
 		var collided = Physics.Raycast(cam.position, cam.forward,out var hit, 2f,weaponLayer);
-		equipText.SetActive(collided);
+		equipText.SetActive(collided && !weapon);
 
-		if (collided)
+		if(Input.GetKeyDown(KeyCode.E))
 		{
-			weapon = hit.transform.GetComponent<Weapon>();
-		}
-
-		if (collided && Input.GetKeyDown(KeyCode.E))
-		{
-			weapon = hit.transform.GetComponent<Weapon>();
+			if (weapon == null && collided)
+			{
+				weapon = hit.transform.GetComponent<Weapon>();
+				Grab(weapon);
+			}
+			else
+			{
+				Drop();
+			}
 		}
 
 
@@ -55,6 +59,29 @@ public class Player : MonoBehaviour
 		}
 
 
+	}
+
+
+	public void Grab(Weapon newWeapon)
+	{
+		weapon = newWeapon;
+		weapon.GetComponent<Rigidbody>().isKinematic = true;
+		weapon.transform.position = hand.position;
+		weapon.transform.rotation = hand.rotation;
+		weapon.transform.parent = hand;
+	}
+
+
+	public void Drop()
+	{
+		if(weapon == null) return;
+
+		var rb = weapon.GetComponent<Rigidbody>();
+		rb.isKinematic = false;
+		rb.velocity = transform.forward * 5f;
+
+		weapon.transform.parent = null;
+		weapon = null;
 	}
 
 	void OnCollisionEnter(Collision other)
