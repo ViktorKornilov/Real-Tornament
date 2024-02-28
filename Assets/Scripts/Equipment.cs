@@ -27,6 +27,7 @@ public class Equipment : MonoBehaviour
         {
             print("Equiped");
             weapon = hit.transform.GetComponent<Weapon>();
+            hit.transform.GetComponent<Rigidbody>().isKinematic = true;
 
             hit.transform.position = hand.position;
             hit.transform.rotation = hand.rotation;
@@ -39,6 +40,7 @@ public class Equipment : MonoBehaviour
         if(weapon != null && Input.GetKeyDown(KeyCode.E))
         {
             print("Unequiped");
+            hit.transform.GetComponent<Rigidbody>().isKinematic = false;
             weapon.transform.SetParent(null);
             weapon = null;
             return;
