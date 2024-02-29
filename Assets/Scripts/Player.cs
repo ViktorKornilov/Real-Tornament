@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public Weapon weapon;
     public LayerMask weaponLayer;
     public GameObject grabText;
+    public Transform hand;
 
     void Start()
     {
@@ -26,12 +27,17 @@ public class Player : MonoBehaviour
     {
         var cam = Camera.main.transform;
         var collided = Physics.Raycast(cam.position, cam.forward, out var hit,2f,weaponLayer);
-        grabText.SetActive(collided);
-        if (collided)
+        grabText.SetActive(!weapon && collided);
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (!weapon && collided)
             {
-                weapon = hit.transform.GetComponent<Weapon>();
+                Grab(hit.collider.gameObject);
+            }
+            else
+            {
+                Drop();
             }
         }
 
@@ -59,6 +65,36 @@ public class Player : MonoBehaviour
             weapon.onRightClick.Invoke();
         }
 
+    }
+
+    public void Grab(GameObject gun)
+    {
+        if (weapon != null)
+        {
+            print ("Already holding a weapon!!");
+            return;
+        }
+
+        weapon = gun.GetComponent<Weapon>();
+        weapon.GetComponent<Rigidbody>().isKinematic = true;
+
+        weapon.transform.position = hand.position;
+        weapon.transform.rotation = hand.rotation;
+        weapon.transform.parent = hand;
+    }
+
+
+    public void Drop()
+    {
+        if (weapon == null)
+        {
+            print("No weapon to drop!!!");
+            return;
+        }
+
+        weapon.GetComponent<Rigidbody>().isKinematic = false;
+        weapon.transform.parent = null;
+        weapon = null;
     }
 
     void UpdateUI()
