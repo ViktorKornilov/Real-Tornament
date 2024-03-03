@@ -5,6 +5,7 @@ public class Enemy : MonoBehaviour
 {
     NavMeshAgent agent;
     Transform target;
+    Health health;
 
     void Start()
     {
