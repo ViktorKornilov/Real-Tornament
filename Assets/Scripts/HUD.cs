@@ -12,13 +12,20 @@ public class HUD : MonoBehaviour
     void Start()
     {
         UpdateUI();
-        weapon.onShoot.AddListener(UpdateUI);
         health.onDamage.AddListener(UpdateUI);
     }
 
-    void UpdateUI()
+    public void UpdateUI()
     {
-        ammoText.text = weapon.clipAmmo + " / " + weapon.ammo;
         healthText.text = health.hp.ToString();
+
+        if (weapon == null)
+        {
+            ammoText.text = "";
+        }
+        else
+        {
+            ammoText.text = weapon.clipAmmo + " / " + weapon.ammo;
+        }
     }
 }
